@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@theme {
+  --color-ink:#0B1B33; --color-paper:#FBFAF7; --color-gold:#F2B01E; --color-royal:#3B5BDB;
+  --font-display:"Fraunces",serif; --font-body:"Plus Jakarta Sans",sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:80px} body{font-family:var(--font-body);background:#FBFAF7;color:#0B1B33}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)} .rv.in{opacity:1;transform:none}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-14px) rotate(var(--r,0deg))}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes slide{from{transform:translateX(100%)}to{transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.float{animation:float 6s ease-in-out infinite} .spin{animation:spin 20s linear infinite} .marq{animation:marq 40s linear infinite;width:max-content}
+.slide{animation:slide .35s cubic-bezier(.2,.8,.2,1)} .fade{animation:fade .3s}
+.dots{background-image:radial-gradient(rgba(11,27,51,.14) 1.2px,transparent 1.2px);background-size:22px 22px}
+@media (prefers-reduced-motion:reduce){.float,.spin,.marq,.slide,.fade{animation:none}.rv{opacity:1;transform:none;transition:none}}
